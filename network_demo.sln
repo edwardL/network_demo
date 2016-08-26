@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "frame", "frame\network_demo.vcxproj", "{597D6700-A9AC-4530-BE06-21CB4E4DD829}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "unitest", "unitest\unitest.vcxproj", "{ECFEFA86-0F2F-45E3-8326-99AFA76D81DB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{597D6700-A9AC-4530-BE06-21CB4E4DD829} = {597D6700-A9AC-4530-BE06-21CB4E4DD829}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{597D6700-A9AC-4530-BE06-21CB4E4DD829}.Debug|Win32.ActiveCfg = Debug|Win32
+		{597D6700-A9AC-4530-BE06-21CB4E4DD829}.Debug|Win32.Build.0 = Debug|Win32
+		{597D6700-A9AC-4530-BE06-21CB4E4DD829}.Release|Win32.ActiveCfg = Release|Win32
+		{597D6700-A9AC-4530-BE06-21CB4E4DD829}.Release|Win32.Build.0 = Release|Win32
+		{ECFEFA86-0F2F-45E3-8326-99AFA76D81DB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{ECFEFA86-0F2F-45E3-8326-99AFA76D81DB}.Debug|Win32.Build.0 = Debug|Win32
+		{ECFEFA86-0F2F-45E3-8326-99AFA76D81DB}.Release|Win32.ActiveCfg = Release|Win32
+		{ECFEFA86-0F2F-45E3-8326-99AFA76D81DB}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

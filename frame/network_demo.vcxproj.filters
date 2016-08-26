@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="base">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="net">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="file">
+      <UniqueIdentifier>{96818fa5-dfb0-4e5f-abdd-d52a4e33ba02}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="net\basesock.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="base\basethread.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\mutex.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\smartptr.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\basetool.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="net\clientsocket.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="net\serversocket.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="base\threadpool.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\basetask.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\workerthread.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="file\DreamXFile.h">
+      <Filter>file</Filter>
+    </ClInclude>
+    <ClInclude Include="base\heap.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="file\basefilepack.h">
+      <Filter>file</Filter>
+    </ClInclude>
+    <ClInclude Include="base\commonfunc.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="net\inetworkmodule.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="net\imodule.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="net\iinterfacemgr.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="net\netprotocalbuff.h">
+      <Filter>net</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="net\basesocket.cpp">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="base\basethread.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="base\mutex.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="base\basetool.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="net\clientsocket.cpp">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="net\serversocket.cpp">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="base\basetask.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="base\workerthread.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="base\threadpool.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="file\DreamXFile.cpp">
+      <Filter>file</Filter>
+    </ClCompile>
+    <ClCompile Include="base\commonfunc.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="net\netprotocalbuff.cpp">
+      <Filter>net</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
