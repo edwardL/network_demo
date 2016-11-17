@@ -80,6 +80,7 @@
     <ClInclude Include="base\basetask.h" />
     <ClInclude Include="base\basethread.h" />
     <ClInclude Include="base\basetool.h" />
+    <ClInclude Include="base\Bitset.h" />
     <ClInclude Include="base\commonfunc.h" />
     <ClInclude Include="base\heap.h" />
     <ClInclude Include="base\mutex.h" />
@@ -88,6 +89,9 @@
     <ClInclude Include="base\workerthread.h" />
     <ClInclude Include="file\basefilepack.h" />
     <ClInclude Include="file\DreamXFile.h" />
+    <ClInclude Include="file\heap.h" />
+    <ClInclude Include="file\raobjlist.h" />
+    <ClInclude Include="file\singlemanager.h" />
     <ClInclude Include="net\basesock.h" />
     <ClInclude Include="net\clientsocket.h" />
     <ClInclude Include="net\iinterfacemgr.h" />
@@ -105,6 +109,7 @@
     <ClCompile Include="base\threadpool.cpp" />
     <ClCompile Include="base\workerthread.cpp" />
     <ClCompile Include="file\DreamXFile.cpp" />
+    <ClCompile Include="file\singlemanager.cpp" />
     <ClCompile Include="net\basesocket.cpp" />
     <ClCompile Include="net\clientsocket.cpp" />
     <ClCompile Include="net\netprotocalbuff.cpp" />
