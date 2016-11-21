@@ -15,7 +15,15 @@ public:
 		static void toLowerCase(string& str);
 		static void toUpperCase(string& str);
 
-		static bool startsWith(const string& str, const string& pattern, bool ignoreCase);
+		static bool startsWith(const string& str, const string& pattern, bool lowerCase = true);
+
+		static bool endsWith(const string& str, const string& pattern, bool lowerCase = true);
+
+		static string standardisePath(const string& init);
+
+		static void splitFileName(const string& qualifiedName, string& outBaseName, string &outPath);
+
+		static const string replaceAll(const string& source, const string& replaceWhat, const string replaceWithWhat);
 };
 
 

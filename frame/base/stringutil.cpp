@@ -91,3 +91,53 @@ bool StringUtil::startsWith(const string& str, const string& pattern, bool lower
 	return (startOfThis == pattern);
 }
 
+bool StringUtil::endsWith(const string& str, const string& pattern, bool lowerCase)
+{
+	size_t thisLen = str.length();
+	size_t patternLen = pattern.length();
+	if(thisLen < patternLen || patternLen == 0)
+		return false;
+	string endOfThis = str.substr(thisLen - patternLen, patternLen);
+	if(lowerCase)
+		StringUtil::toLowerCase(endOfThis);
+	return (endOfThis == pattern);
+}
+
+string StringUtil::standardisePath(const string& init)
+{
+	string path = init;
+	std::replace(path.begin(),path.end(),'\\','/');
+	if(path[path.length()-1] != '/')
+		path += '/';
+	return path;
+}
+
+void StringUtil::splitFileName(const string& fullName, string& outBaseName, string &outPath)
+{
+	size_t i = fullName.find_last_of(".");
+	if(i == string::npos)
+	{
+		outPath.clear();
+		outBaseName = fullName;
+	}
+	else
+	{
+		outPath = fullName.substr(0,i);
+		outBaseName = fullName.substr(i);
+	}
+}
+
+const string StringUtil::replaceAll(const string& source, const string& replaceWhat, const string replaceWithWhat)
+{
+	// 有点问题的
+	string result = source;
+	string::size_type pos = 0;
+	while(1)
+	{
+		pos = source.find(replaceWhat,pos);
+		if(pos == string::npos) break;
+		result.replace(pos,replaceWhat.size(),replaceWithWhat);
+		pos += replaceWithWhat.size();
+	}
+	return result;
+}
