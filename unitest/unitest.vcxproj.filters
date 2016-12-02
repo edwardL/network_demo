@@ -41,10 +41,10 @@
     <ClInclude Include="xfiletest.h">
       <Filter>testclass</Filter>
     </ClInclude>
-    <ClInclude Include="heaptest.h">
+    <ClInclude Include="netprotocalbufftest.h">
       <Filter>testclass</Filter>
     </ClInclude>
-    <ClInclude Include="netprotocalbufftest.h">
+    <ClInclude Include="populartest.h">
       <Filter>testclass</Filter>
     </ClInclude>
   </ItemGroup>
