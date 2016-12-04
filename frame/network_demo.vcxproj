@@ -85,6 +85,7 @@
     <ClInclude Include="base\heap.h" />
     <ClInclude Include="base\mutex.h" />
     <ClInclude Include="base\smartptr.h" />
+    <ClInclude Include="base\stringconverter.h" />
     <ClInclude Include="base\stringutil.h" />
     <ClInclude Include="base\threadpool.h" />
     <ClInclude Include="base\workerthread.h" />
@@ -116,6 +117,7 @@
     <ClCompile Include="base\basetool.cpp" />
     <ClCompile Include="base\commonfunc.cpp" />
     <ClCompile Include="base\mutex.cpp" />
+    <ClCompile Include="base\stringconverter.cpp" />
     <ClCompile Include="base\stringutil.cpp" />
     <ClCompile Include="base\threadpool.cpp" />
     <ClCompile Include="base\workerthread.cpp" />
