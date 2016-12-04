@@ -103,6 +103,7 @@
     <ClInclude Include="file\heap.h" />
     <ClInclude Include="file\raobjlist.h" />
     <ClInclude Include="file\singlemanager.h" />
+    <ClInclude Include="math\vector2.h" />
     <ClInclude Include="net\basesock.h" />
     <ClInclude Include="net\clientsocket.h" />
     <ClInclude Include="net\iinterfacemgr.h" />
@@ -110,6 +111,11 @@
     <ClInclude Include="net\inetworkmodule.h" />
     <ClInclude Include="net\netprotocalbuff.h" />
     <ClInclude Include="net\serversocket.h" />
+    <ClInclude Include="timer\timer.h" />
+    <ClInclude Include="tinyxml\configcommon.h" />
+    <ClInclude Include="tinyxml\tinystr.h" />
+    <ClInclude Include="tinyxml\tinyxml.h" />
+    <ClInclude Include="tinyxml\tinyxml_demo.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="base\basetask.cpp" />
@@ -127,10 +133,17 @@
     <ClCompile Include="db\mysql\mysqlstatement.cpp" />
     <ClCompile Include="file\DreamXFile.cpp" />
     <ClCompile Include="file\singlemanager.cpp" />
+    <ClCompile Include="math\vector2.cpp" />
     <ClCompile Include="net\basesocket.cpp" />
     <ClCompile Include="net\clientsocket.cpp" />
     <ClCompile Include="net\netprotocalbuff.cpp" />
     <ClCompile Include="net\serversocket.cpp" />
+    <ClCompile Include="timer\timer.cpp" />
+    <ClCompile Include="tinyxml\tinystr.cpp" />
+    <ClCompile Include="tinyxml\tinyxml.cpp" />
+    <ClCompile Include="tinyxml\tinyxmlerror.cpp" />
+    <ClCompile Include="tinyxml\tinyxmlparser.cpp" />
+    <ClCompile Include="tinyxml\tinyxml_demo.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
