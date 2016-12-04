@@ -40,7 +40,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;$(ProjectDir)../lib/include;</IncludePath>
+    <IncludePath>$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;$(ProjectDir)../lib/include;E:\vs2010_proj\network_demo\mysqlconnector\v32\include;</IncludePath>
     <LibraryPath>$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib;$(ProjectDir)../lib</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -85,8 +85,18 @@
     <ClInclude Include="base\heap.h" />
     <ClInclude Include="base\mutex.h" />
     <ClInclude Include="base\smartptr.h" />
+    <ClInclude Include="base\stringutil.h" />
     <ClInclude Include="base\threadpool.h" />
     <ClInclude Include="base\workerthread.h" />
+    <ClInclude Include="db\connection.h" />
+    <ClInclude Include="db\connfactroy.h" />
+    <ClInclude Include="db\connpool.h" />
+    <ClInclude Include="db\mysql\mysqlconnection.h" />
+    <ClInclude Include="db\mysql\mysqlconnfactory.h" />
+    <ClInclude Include="db\mysql\mysqlstatement.h" />
+    <ClInclude Include="db\mysql_connection.h" />
+    <ClInclude Include="db\statement.h" />
+    <ClInclude Include="db\transaction.h" />
     <ClInclude Include="file\basefilepack.h" />
     <ClInclude Include="file\DreamXFile.h" />
     <ClInclude Include="file\heap.h" />
@@ -106,8 +116,13 @@
     <ClCompile Include="base\basetool.cpp" />
     <ClCompile Include="base\commonfunc.cpp" />
     <ClCompile Include="base\mutex.cpp" />
+    <ClCompile Include="base\stringutil.cpp" />
     <ClCompile Include="base\threadpool.cpp" />
     <ClCompile Include="base\workerthread.cpp" />
+    <ClCompile Include="db\connpool.cpp" />
+    <ClCompile Include="db\mysql\mysqlconnection.cpp" />
+    <ClCompile Include="db\mysql\mysqlconnfactory.cpp" />
+    <ClCompile Include="db\mysql\mysqlstatement.cpp" />
     <ClCompile Include="file\DreamXFile.cpp" />
     <ClCompile Include="file\singlemanager.cpp" />
     <ClCompile Include="net\basesocket.cpp" />
