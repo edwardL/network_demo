@@ -19,6 +19,7 @@ using namespace std;
 char username	[STRING_LEN] = "edward2";
 char userpass	[STRING_LEN] = "askjsadkjas";
 
+//#define TEST_98
 
 class MySQL_Connection
 {
@@ -28,7 +29,7 @@ public:
 		printf("mysql client version : %d\n",mysql_get_client_version());
 		MYSQL *conn_ptr;
 		MYSQL_RES *res;
-
+#ifdef TEST_98
 		char* host = "192.168.7.98";
 		//char* host = "192.168.4.189";
 		char* user = "root";
@@ -38,6 +39,15 @@ public:
 		unsigned short port = 4580;
 		char* unix_socket = NULL;
 		char* charset = "utf8";
+#else
+		char* host = "192.168.4.189";
+		char* user = "root";
+		char* passwd = "edward";
+		char* db = "testdbname";
+		unsigned short port = 3306;
+		char* unix_socket = NULL;
+		char* charset = "utf8";
+#endif
 
 		MysqlConnection conn(host,user,passwd,db,port,charset);
 
@@ -49,6 +59,7 @@ public:
 		}
 
 		// test mysqlconnfactory
+		/*
 		MysqlConnFactory connFactory(host,user,passwd,db,port,charset);
 		IConnection* iconnection = connFactory.CreateConn();
 		delete iconnection;
@@ -56,12 +67,13 @@ public:
 		ConnPool::Instance()->Init(&connFactory);
 		IConnection* a = ConnPool::Instance()->GetConn();
 		IConnection* b = ConnPool::Instance()->GetConn();
+		*/
 
 		// test mysql statement
 		if (strcmp(host,"192.168.4.189") == 0)
 		{
 	//		Mysql_Statement((MYSQL*)a->GetConn());
-			Mysql_Statement((MYSQL*)a->GetConn());
+			Mysql_Statement((MYSQL*)conn.GetConn());
 		}
 /*
 		MYSQL* tmp = 0;
@@ -114,8 +126,9 @@ public:
 			
 			int age = 111;
 
-			bind[0].buffer_type = MYSQL_TYPE_LONG;
-			bind[0].buffer = &age;
+			bind[0].buffer_type = MYSQL_TYPE_TINY;
+			bind[0].buffer = malloc(sizeof(int));
+			*(int*)bind[0].buffer = 111;
 
 
 

@@ -16,6 +16,24 @@
     <Filter Include="file">
       <UniqueIdentifier>{96818fa5-dfb0-4e5f-abdd-d52a4e33ba02}</UniqueIdentifier>
     </Filter>
+    <Filter Include="db">
+      <UniqueIdentifier>{0fa5ac84-ad65-4fbd-be9c-ef3fe0123c4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="db\mysql">
+      <UniqueIdentifier>{16f51882-5f61-4aa9-af9f-9a963aa55217}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="math">
+      <UniqueIdentifier>{9a9f41ad-803f-401b-8bf7-ac7a20457574}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tinyxml">
+      <UniqueIdentifier>{fc2d3e3f-bd78-4d04-8bd8-4d4167ac19d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="timer">
+      <UniqueIdentifier>{51736587-b030-44f5-a44b-1b1f85064ca6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="algorithm">
+      <UniqueIdentifier>{4c30578d-a7bc-40d7-984b-7d30a4665346}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="net\basesock.h">
@@ -72,6 +90,93 @@
     <ClInclude Include="net\netprotocalbuff.h">
       <Filter>net</Filter>
     </ClInclude>
+    <ClInclude Include="file\heap.h">
+      <Filter>file</Filter>
+    </ClInclude>
+    <ClInclude Include="file\raobjlist.h">
+      <Filter>file</Filter>
+    </ClInclude>
+    <ClInclude Include="file\singlemanager.h">
+      <Filter>file</Filter>
+    </ClInclude>
+    <ClInclude Include="db\mysql_connection.h">
+      <Filter>db</Filter>
+    </ClInclude>
+    <ClInclude Include="db\connection.h">
+      <Filter>db</Filter>
+    </ClInclude>
+    <ClInclude Include="db\mysql\mysqlconnection.h">
+      <Filter>db\mysql</Filter>
+    </ClInclude>
+    <ClInclude Include="db\transaction.h">
+      <Filter>db</Filter>
+    </ClInclude>
+    <ClInclude Include="db\connfactroy.h">
+      <Filter>db</Filter>
+    </ClInclude>
+    <ClInclude Include="db\mysql\mysqlconnfactory.h">
+      <Filter>db\mysql</Filter>
+    </ClInclude>
+    <ClInclude Include="db\connpool.h">
+      <Filter>db</Filter>
+    </ClInclude>
+    <ClInclude Include="base\stringutil.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="db\statement.h">
+      <Filter>db</Filter>
+    </ClInclude>
+    <ClInclude Include="db\mysql\mysqlstatement.h">
+      <Filter>db\mysql</Filter>
+    </ClInclude>
+    <ClInclude Include="base\stringconverter.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="math\vector2.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyxml\tinyxml.h">
+      <Filter>tinyxml</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyxml\tinystr.h">
+      <Filter>tinyxml</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyxml\tinyxml_demo.h">
+      <Filter>tinyxml</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyxml\configcommon.h">
+      <Filter>tinyxml</Filter>
+    </ClInclude>
+    <ClInclude Include="timer\timer.h">
+      <Filter>timer</Filter>
+    </ClInclude>
+    <ClInclude Include="timer\timerquest.h">
+      <Filter>timer</Filter>
+    </ClInclude>
+    <ClInclude Include="timer\eventsystem.h">
+      <Filter>timer</Filter>
+    </ClInclude>
+    <ClInclude Include="base\vector.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\array2d.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\bitset.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="algorithm\sort.h">
+      <Filter>algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="db\dbdef.h">
+      <Filter>db</Filter>
+    </ClInclude>
+    <ClInclude Include="db\resultset.h">
+      <Filter>db\mysql</Filter>
+    </ClInclude>
+    <ClInclude Include="db\mysql\mysqlresult.h">
+      <Filter>db\mysql</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="net\basesocket.cpp">
@@ -109,6 +214,54 @@
     </ClCompile>
     <ClCompile Include="net\netprotocalbuff.cpp">
       <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="file\singlemanager.cpp">
+      <Filter>file</Filter>
+    </ClCompile>
+    <ClCompile Include="db\mysql\mysqlconnection.cpp">
+      <Filter>db\mysql</Filter>
+    </ClCompile>
+    <ClCompile Include="db\mysql\mysqlconnfactory.cpp">
+      <Filter>db\mysql</Filter>
+    </ClCompile>
+    <ClCompile Include="base\stringutil.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="db\connpool.cpp">
+      <Filter>db</Filter>
+    </ClCompile>
+    <ClCompile Include="db\mysql\mysqlstatement.cpp">
+      <Filter>db\mysql</Filter>
+    </ClCompile>
+    <ClCompile Include="base\stringconverter.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="math\vector2.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml\tinystr.cpp">
+      <Filter>tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml\tinyxmlparser.cpp">
+      <Filter>tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml\tinyxml.cpp">
+      <Filter>tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml\tinyxmlerror.cpp">
+      <Filter>tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml\tinyxml_demo.cpp">
+      <Filter>tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="timer\timer.cpp">
+      <Filter>timer</Filter>
+    </ClCompile>
+    <ClCompile Include="timer\timerquest.cpp">
+      <Filter>timer</Filter>
+    </ClCompile>
+    <ClCompile Include="algorithm\sort.cpp">
+      <Filter>algorithm</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

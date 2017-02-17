@@ -152,3 +152,12 @@ bool MysqlConnection::Rollback()
 	}
 	return false;
 }
+
+long long MysqlConnection::GetInsertID()
+{
+	if(0 != m_mysql)
+	{
+		return mysql_insert_id(m_mysql);
+	}
+	return -1;
+}

@@ -77,12 +77,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="algorithm\sort.h" />
+    <ClInclude Include="base\array2d.h" />
     <ClInclude Include="base\basetask.h" />
     <ClInclude Include="base\basethread.h" />
     <ClInclude Include="base\basetool.h" />
-    <ClInclude Include="base\Bitset.h" />
+    <ClInclude Include="base\bitset.h" />
     <ClInclude Include="base\commonfunc.h" />
     <ClInclude Include="base\heap.h" />
+    <ClInclude Include="base\vector.h" />
     <ClInclude Include="base\mutex.h" />
     <ClInclude Include="base\smartptr.h" />
     <ClInclude Include="base\stringconverter.h" />
@@ -92,10 +95,13 @@
     <ClInclude Include="db\connection.h" />
     <ClInclude Include="db\connfactroy.h" />
     <ClInclude Include="db\connpool.h" />
+    <ClInclude Include="db\dbdef.h" />
     <ClInclude Include="db\mysql\mysqlconnection.h" />
     <ClInclude Include="db\mysql\mysqlconnfactory.h" />
+    <ClInclude Include="db\mysql\mysqlresult.h" />
     <ClInclude Include="db\mysql\mysqlstatement.h" />
     <ClInclude Include="db\mysql_connection.h" />
+    <ClInclude Include="db\resultset.h" />
     <ClInclude Include="db\statement.h" />
     <ClInclude Include="db\transaction.h" />
     <ClInclude Include="file\basefilepack.h" />
@@ -111,13 +117,16 @@
     <ClInclude Include="net\inetworkmodule.h" />
     <ClInclude Include="net\netprotocalbuff.h" />
     <ClInclude Include="net\serversocket.h" />
+    <ClInclude Include="timer\eventsystem.h" />
     <ClInclude Include="timer\timer.h" />
+    <ClInclude Include="timer\timerquest.h" />
     <ClInclude Include="tinyxml\configcommon.h" />
     <ClInclude Include="tinyxml\tinystr.h" />
     <ClInclude Include="tinyxml\tinyxml.h" />
     <ClInclude Include="tinyxml\tinyxml_demo.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="algorithm\sort.cpp" />
     <ClCompile Include="base\basetask.cpp" />
     <ClCompile Include="base\basethread.cpp" />
     <ClCompile Include="base\basetool.cpp" />
@@ -139,6 +148,7 @@
     <ClCompile Include="net\netprotocalbuff.cpp" />
     <ClCompile Include="net\serversocket.cpp" />
     <ClCompile Include="timer\timer.cpp" />
+    <ClCompile Include="timer\timerquest.cpp" />
     <ClCompile Include="tinyxml\tinystr.cpp" />
     <ClCompile Include="tinyxml\tinyxml.cpp" />
     <ClCompile Include="tinyxml\tinyxmlerror.cpp" />

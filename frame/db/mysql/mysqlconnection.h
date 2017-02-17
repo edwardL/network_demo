@@ -43,6 +43,8 @@ public:
 
 	// 获取连接实体对象指针，例如MYSQL*
 	virtual void* GetConn();
+	//返回由以前的INSERT或UPDATE语句为AUTO_INCREMENT列生成的值
+	virtual long long GetInsertID();
 
 
 	//事务开始，参数表明此次事务是否使用缓存事务

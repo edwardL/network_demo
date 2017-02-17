@@ -131,3 +131,14 @@ bool StringConverter::parseBool(const string& val, bool defaultVal)
 		return false;
 	return defaultVal;
 }
+
+Vector2 StringConverter::parseVector2(const string& val, const Vector2& defaultVal /* = Vector2::ZERO */)
+{
+	vector<string> vec= StringUtil::split(val," ");
+	if(vec.size() != 2)
+		return defaultVal;
+	else
+	{
+		return Vector2(parseFloat(vec[0]),parseFloat(vec[1]));
+	}
+}

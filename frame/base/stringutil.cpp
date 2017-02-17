@@ -13,7 +13,7 @@ void StringUtil::trim(string& str, bool left /* = true */, bool right /* = true 
 		 str.erase(str.find_first_not_of(delims));
 }
 
-vector<string> StringUtil::split(string& str, const string& delims/* = */,unsigned int maxSplits /* = 0 */, bool preserveDelims /* = false */)
+vector<string> StringUtil::split(const string& str, const string& delims/* = */,unsigned int maxSplits /* = 0 */, bool preserveDelims /* = false */)
 {
 	vector<string> ret;
 	ret.reserve(maxSplits ? maxSplits + 1 : 10);

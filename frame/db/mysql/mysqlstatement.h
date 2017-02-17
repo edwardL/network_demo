@@ -1,5 +1,5 @@
-#ifndef MYSQL_STATEMENT_H
-#define MYSQL_STATEMENT_H
+#ifndef MYSQLSTATEMENT_H
+#define MYSQLSTATEMENT_H
 
 #include "../statement.h"
 
@@ -9,7 +9,7 @@ typedef st_mysql_stmt MYSQL_STMT;
 struct st_mysql_bind;
 typedef st_mysql_bind MYSQL_BIND;
 
-class MysqlStatement:public IStatement
+class MysqlStatement : public IStatement
 {
 public:
 	MysqlStatement();
@@ -18,29 +18,29 @@ public:
 	virtual void SetConnection(IConnection* conn);
 	virtual IConnection* GetConnection();
 
+
 	virtual void* GetStmt();
-
-	// 返回预处理insert 或update 语句为AUTO_INCREMENT 列生成的值
+	//  返回预处理insert 或update语句为auto_increment 列生成的值
 	virtual long long GetInsertID();
-
 	virtual bool Prepare(const char* sql);
 	virtual void ClearParameters();
 	virtual void Close();
 
+	//
 	virtual bool SetBype(int paramIndex, char value);
 	virtual bool SetBoolean(int paramIndex, bool value);
 	virtual bool SetInt32(int paramIndex, int value);
 	virtual bool SetDouble(int paramIndex, double value);
-	virtual bool SetLong64(int paramIndex, long long value);
-	virtual bool SetString(int paramIndex, const char* value,unsigned long length);
+	virtual bool SetLong64(int paramIndex, long long value );
+	virtual bool SetString(int paramIndex, const char* value, unsigned long length);
 	virtual bool SetDate(int paramIndex, const tm& value);
-	virtual bool SetTime(int param, const tm& value);
-	virtual bool SetTimeStamp(int paramIndex, const tm& value);
+	virtual bool SetTime(int paramIndex, const tm& value);
+	virtual bool SetTimestamp(int paramIndex, const tm& value);
 
 	virtual int Execute(/* = 0 */);
-	virtual int Execute(const char* mysql);
-
-	virtual IResultset* ExecuteQuery();
+	virtual int Execute(const char* sql);
+	
+	virtual IResultset* ExecuteQuery(/* = 0 */);
 	virtual IResultset* ExecuteQuery(const char* sql);
 
 protected:
@@ -55,5 +55,6 @@ private:
 	MYSQL_BIND*		m_params;
 	int				m_paramcount;
 };
+
 
 #endif

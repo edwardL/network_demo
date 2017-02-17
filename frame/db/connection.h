@@ -44,6 +44,11 @@ public:
 	virtual int GetErrNo() const = 0;
 	// 获取错误字符串
 	virtual const char* GetError() const = 0;
+
+	//返回由以前的INSERT或UPDATE语句为AUTO_INCREMENT列生成的值
+	virtual long long GetInsertID() = 0;
+
+	
 };
 
 
