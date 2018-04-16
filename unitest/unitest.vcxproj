@@ -41,6 +41,7 @@
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;$(ProjectDir)../lib/include;</IncludePath>
     <LibraryPath>$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib;$(ProjectDir)../lib;$(ProjectDir)../Debug</LibraryPath>
+    <EmbedManifest>false</EmbedManifest>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -85,6 +86,7 @@
     <ClCompile Include="xfiletest.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="jpstest.h" />
     <ClInclude Include="populartest.h" />
     <ClInclude Include="netprotocalbufftest.h" />
     <ClInclude Include="serversockettest.h" />

@@ -40,7 +40,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;$(ProjectDir)../lib/include;E:\vs2010_proj\network_demo\mysqlconnector\v32\include;</IncludePath>
+    <IncludePath>$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;$(ProjectDir)../lib/include;G:\network_demo\mysqlconnector\v32\include;</IncludePath>
     <LibraryPath>$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib;$(ProjectDir)../lib</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -83,8 +83,13 @@
     <ClInclude Include="base\basethread.h" />
     <ClInclude Include="base\basetool.h" />
     <ClInclude Include="base\bitset.h" />
+    <ClInclude Include="base\bytebuffer.h" />
     <ClInclude Include="base\commonfunc.h" />
+    <ClInclude Include="base\gamedef.h" />
     <ClInclude Include="base\heap.h" />
+    <ClInclude Include="base\pointer_util.h" />
+    <ClInclude Include="base\serializestream.h" />
+    <ClInclude Include="base\tlvprotocol.h" />
     <ClInclude Include="base\vector.h" />
     <ClInclude Include="base\mutex.h" />
     <ClInclude Include="base\smartptr.h" />
@@ -108,7 +113,9 @@
     <ClInclude Include="file\DreamXFile.h" />
     <ClInclude Include="file\heap.h" />
     <ClInclude Include="file\raobjlist.h" />
+    <ClInclude Include="file\roleparam.h" />
     <ClInclude Include="file\singlemanager.h" />
+    <ClInclude Include="jps\JPS.h" />
     <ClInclude Include="math\vector2.h" />
     <ClInclude Include="net\basesock.h" />
     <ClInclude Include="net\clientsocket.h" />
@@ -117,6 +124,7 @@
     <ClInclude Include="net\inetworkmodule.h" />
     <ClInclude Include="net\netprotocalbuff.h" />
     <ClInclude Include="net\serversocket.h" />
+    <ClInclude Include="scene\obj\obj.h" />
     <ClInclude Include="timer\eventsystem.h" />
     <ClInclude Include="timer\timer.h" />
     <ClInclude Include="timer\timerquest.h" />
@@ -130,8 +138,10 @@
     <ClCompile Include="base\basetask.cpp" />
     <ClCompile Include="base\basethread.cpp" />
     <ClCompile Include="base\basetool.cpp" />
+    <ClCompile Include="base\bytebuffer.cpp" />
     <ClCompile Include="base\commonfunc.cpp" />
     <ClCompile Include="base\mutex.cpp" />
+    <ClCompile Include="base\serializestream.cpp" />
     <ClCompile Include="base\stringconverter.cpp" />
     <ClCompile Include="base\stringutil.cpp" />
     <ClCompile Include="base\threadpool.cpp" />
@@ -141,6 +151,7 @@
     <ClCompile Include="db\mysql\mysqlconnfactory.cpp" />
     <ClCompile Include="db\mysql\mysqlstatement.cpp" />
     <ClCompile Include="file\DreamXFile.cpp" />
+    <ClCompile Include="file\roleparam.cpp" />
     <ClCompile Include="file\singlemanager.cpp" />
     <ClCompile Include="math\vector2.cpp" />
     <ClCompile Include="net\basesocket.cpp" />

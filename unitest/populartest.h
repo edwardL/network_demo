@@ -6,6 +6,8 @@
 #include "../frame/math/vector2.h"
 #include "../frame/tinyxml/tinyxml_demo.h"
 #include "../frame/timer/timer.h"
+#include "../frame/base/tlvprotocol.h"
+#include "../frame/file/roleparam.h"
 
 #include <iostream>
 
@@ -117,5 +119,22 @@ public:
 		unsigned long time = Timer::getInstance()->getMicroseconds();  // Œ¢√Î
 		unsigned long millitimer =  Timer::getInstance()->getMilliseconds(); // ∫¡√Î
 		printf("current microseconds is %ld, millisecond is %ld\n",time,millitimer);
+	}
+};
+
+class SerializeTest
+{
+public:
+	SerializeTest()
+	{
+		RoleParam roleParam;
+		TLVSerializer ser;
+		char* data = new char[1024];
+		ser.Reset(data,1024);
+		roleParam.Serialize(ser);
+		TLVUnserializer unSer;
+		unSer.Reset(ser.Ptr(), ser.Size());
+		RoleParam roleParam2;
+		roleParam2.Unserialize(unSer);
 	}
 };

@@ -10,6 +10,8 @@ using namespace std;
 #include "../frame/timer/timer.h"
 #include "../frame/timer/timerquest.h"
 
+#include "jpstest.h"
+
 #ifdef WIN32
 #pragma comment(lib, "pthreadVC2.lib")
 #pragma comment(lib, "frame.lib")
@@ -26,7 +28,7 @@ void Update(unsigned long interval, unsigned long nowTime)
 //	printf("interval :%ld, nowTime: %ld\n",interval,nowTime);
 	TimerQuest::getInstance()->Update(nowTime / 1000.0 , interval / 1000.0);
 }
-int main()
+int main(int argc , char* argv[])
 {
 	/*
 	SharedPtr<int> p(new int(10));
@@ -47,6 +49,8 @@ int main()
 //	Vector2Test vec2test;
 //	TixmlTest tinyxmltext;
 	//TimerTest timertest;
+
+/*
 	TimerQuest::getInstance()->AddDelayQuest(quest_func,10,false);
 
 	while(true)
@@ -63,6 +67,10 @@ int main()
 		}
 
 	}
+*/
+	SerializeTest serTest;
+
+
 	system("pause");
 	return 0;
 }
