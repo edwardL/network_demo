@@ -1,6 +1,6 @@
 #include "../frame/base/heap.h"
 #include "../frame/file/singlemanager.h"
-#include "../frame/db/mysql_connection.h"
+#include "../frame/datalayer/db/mysql_connection.h"
 #include "../frame/base/stringutil.h"
 #include "../frame/base/stringconverter.h"
 #include "../frame/math/vector2.h"
