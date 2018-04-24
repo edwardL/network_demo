@@ -7,68 +7,54 @@ struct st_mysql;
 typedef st_mysql MYSQL;
 class ITransaction;
 
-
 class MysqlConnection : public IConnection
 {
 public:
-	MysqlConnection(const char* host,const char* dbuser, const char* dbpw, const char* dbname, unsigned short port, const char* charset);
+	MysqlConnection(const char*dbuser,const char* dbpw, const char* dbname, const char* dbhost, unsigned int dbport, const char* charset);
 	virtual ~MysqlConnection();
 
-	// 复制链接
 	virtual IConnection* Clone();
 
-	// 连接数据库
 	virtual bool Connect();
-	// 重新连接数据库
 	virtual bool Reconnect();
 
-	// 连接是否活动
 	virtual bool IsActive();
-	// 实务是否开始
 	virtual bool IsBegin();
 
-	// 关闭连接
 	virtual void Close();
+	virtual bool IsClosed();
 
-	//设置是否自动提交
 	virtual bool SetAutoCommit(bool AutoCommit);
 	virtual bool GetAutoCommit();
 
-	// 获取错误代码
-	virtual int GetErrNo() const;
-	// 获取错误字符串
-	virtual const char* GetError() const;
-
 	virtual bool GetIsCache();
 
-	// 获取连接实体对象指针，例如MYSQL*
 	virtual void* GetConn();
-	//返回由以前的INSERT或UPDATE语句为AUTO_INCREMENT列生成的值
 	virtual long long GetInsertID();
 
-
-	//事务开始，参数表明此次事务是否使用缓存事务
-	virtual bool Begin(bool isCache = true);
-	// 事务提交
+	virtual bool Begin(bool iscache /* = true */);
 	virtual bool Commit();
-	// 事务回滚
-	virtual bool Rollback();	
+	virtual bool Rollback();
+
+	virtual IStatement* createStatement();
+
+	virtual int GetErrNo() const;
+	virtual const char* GetError() const;
 
 private:
 	MYSQL *m_mysql;
 
-	char m_user[64];
-	char m_passwd[64];
+	char m_username[64];
+	char m_pw[64];
 	char m_host[64];
-	char m_charset[64];
-	char m_database[64];
 	unsigned short m_port;
+	char m_charset[32];
+	char m_database[64];
 
+	bool m_connected;
+	bool m_autoCommit;
 	bool m_begin;
 	bool m_isCache;
-	ITransaction * m_transaction;
 };
-
-
 
 #endif

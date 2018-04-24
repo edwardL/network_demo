@@ -43,7 +43,7 @@ int main(int argc , char* argv[])
 	//HeapTest test;
 	//NetProtocalBuffTest test;
 	//SingleManagerTest test;
-	//MysqlTest test;
+	MysqlTest test;
 	//StringUtilTest utiltest;
 //	StringConvertTest stringconvertertest;
 //	Vector2Test vec2test;
@@ -68,7 +68,7 @@ int main(int argc , char* argv[])
 
 	}
 */
-	SerializeTest serTest;
+//	SerializeTest serTest;
 
 
 	system("pause");

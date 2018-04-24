@@ -5,7 +5,6 @@
 #include <map>
 
 class IStatement;
-
 struct st_mysql_bind;
 typedef st_mysql_bind MYSQL_BIND;
 
@@ -37,10 +36,7 @@ public:
 	virtual bool GetByte(int index, char* ret);
 	virtual bool GetByte(const char* columnName, char* ret);
 
-	//virtual bool getBytes(int index, char* ret, int& length);
-	//virtual bool getBytes(const char* columnName, char* ret, int& length);
-
-	virtual bool GetBoolean(int index, bool* ret);
+	virtual bool GetBoolean(int index, bool*ret);
 	virtual bool GetBoolean(const char* columnName, bool* ret);
 
 	virtual bool GetString(int index, char* ret, unsigned long* length);
@@ -50,26 +46,25 @@ public:
 	virtual bool GetInt32(const char* columnName, int* ret);
 
 	virtual bool GetDouble(int index, double* ret);
-	virtual bool GetDouble(const char* columnName, double* ret);
+	virtual bool GetDouble(const char* column, double* ret);
 
 	virtual bool GetDate(int index, tm* ret);
-	virtual bool GetDate(const char* columnName, tm* ret);
+	virtual bool GetDate(const char* column, tm* ret);
 
 	virtual bool GetTime(int index, tm* ret);
-	virtual bool GetTime(const char* columnName, tm* ret);
+	virtual bool GetTime(const char* column, tm* ret);
 
 	virtual bool GetTimestamp(int index, tm* ret);
-	virtual bool GetTimestamp(const char* columnName, tm* ret);
+	virtual bool GetTimestamp(const char* column, tm* ret);
 
 	virtual bool GetLong64(int index, long long* ret);
-	virtual bool GetLong64(const char* columnName, long long* ret);
+	virtual bool GetLong64(const char* column,long long* ret);
 
 	struct IndexType
 	{
 		unsigned int index;
 		int type;
 	};
-
 	struct TypeName
 	{
 		int type;
@@ -83,12 +78,10 @@ protected:
 
 private:
 	std::map<std::string, IndexType> m_field_name_info;
-	TypeName*						 m_fieldIndexInfo;
-	MYSQL_RES*						 m_metadata;
-	unsigned int					 m_fieldCount;
-	MYSQL_BIND*						 m_result;
+	TypeName*			m_fieldIndexInfo;
+	MYSQL_RES*			m_metadata;
+	unsigned int		m_fieldCount;
+	MYSQL_BIND*			m_result;
 };
-
-
 
 #endif

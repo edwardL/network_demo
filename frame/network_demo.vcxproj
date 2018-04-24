@@ -103,6 +103,7 @@
     <ClInclude Include="db\dbdef.h" />
     <ClInclude Include="db\mysql\mysqlconnection.h" />
     <ClInclude Include="db\mysql\mysqlconnfactory.h" />
+    <ClInclude Include="db\mysql\mysqldef.h" />
     <ClInclude Include="db\mysql\mysqlresult.h" />
     <ClInclude Include="db\mysql\mysqlstatement.h" />
     <ClInclude Include="db\mysql_connection.h" />
@@ -149,6 +150,8 @@
     <ClCompile Include="db\connpool.cpp" />
     <ClCompile Include="db\mysql\mysqlconnection.cpp" />
     <ClCompile Include="db\mysql\mysqlconnfactory.cpp" />
+    <ClCompile Include="db\mysql\mysqldef.cpp" />
+    <ClCompile Include="db\mysql\mysqlresult.cpp" />
     <ClCompile Include="db\mysql\mysqlstatement.cpp" />
     <ClCompile Include="file\DreamXFile.cpp" />
     <ClCompile Include="file\roleparam.cpp" />

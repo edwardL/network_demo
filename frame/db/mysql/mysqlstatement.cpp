@@ -3,7 +3,7 @@
 
 #include "../connection.h"
 #include "mysqlstatement.h"
-#include "../resultset.h"
+#include "mysqlresult.h"
 
 MysqlStatement::MysqlStatement()
 {
@@ -57,7 +57,6 @@ bool MysqlStatement::Prepare(const char* sql)
 	{
 		return false;
 	}
-
 	MYSQL* tmp = (MYSQL*)(m_conn->GetConn());
 	if(0 == tmp)
 	{
@@ -68,7 +67,6 @@ bool MysqlStatement::Prepare(const char* sql)
 	{
 		return false;
 	}
-
 	int ret = mysql_stmt_prepare(m_stmt,sql,(unsigned long)strlen(sql));
 	if(0 != ret)
 	{
@@ -95,34 +93,23 @@ void MysqlStatement::Close()
 	m_paramcount = 0;
 }
 
-void MysqlStatement::InitParams()
-{
-	DestroyParams();
-	m_paramcount = mysql_stmt_param_count(m_stmt);
-	if(m_paramcount > 0)
-	{
-		m_params = new MYSQL_BIND[m_paramcount];
-		memset(m_params,0,sizeof(MYSQL_BIND)* m_paramcount);
-	}
-}
-
-bool MysqlStatement::SetBype(int paramIndex, char value)
+bool MysqlStatement::SetByte(int paramIndex, char value)
 {
 	if(!ValidIndex(paramIndex))
 	{
 		return false;
 	}
-	MYSQL_BIND* bind = &m_params[paramIndex];
+	MYSQL_BIND *bind = &m_params[paramIndex];
 	bind->buffer_type = MYSQL_TYPE_TINY;
 	bind->buffer = malloc(sizeof(char));
-	*((unsigned char*)bind->buffer)= (unsigned char)value;
+	*((unsigned char*)bind->buffer) = (unsigned char)value;
 	bind->length = 0;
 	return true;
 }
 
 bool MysqlStatement::SetBoolean(int paramIndex, bool value)
 {
-	return SetBype(paramIndex,(char)value);
+	return SetByte(paramIndex,(char)value);
 }
 
 bool MysqlStatement::SetInt32(int paramIndex, int value)
@@ -131,7 +118,7 @@ bool MysqlStatement::SetInt32(int paramIndex, int value)
 	{
 		return false;
 	}
-	MYSQL_BIND* bind = &m_params[paramIndex];
+	MYSQL_BIND *bind = &m_params[paramIndex];
 	bind->buffer_type = MYSQL_TYPE_LONG;
 	bind->buffer = malloc(sizeof(int));
 	*(int*)bind->buffer = value;
@@ -139,15 +126,30 @@ bool MysqlStatement::SetInt32(int paramIndex, int value)
 	return true;
 }
 
-bool MysqlStatement::SetLong64(int paramIndex, long long value )
+bool MysqlStatement::SetDouble(int paramIndex, double value)
 {
 	if(!ValidIndex(paramIndex))
 	{
 		return false;
 	}
-	MYSQL_BIND* bind = &m_params[paramIndex];
-	bind->buffer_type = MYSQL_TYPE_LONGLONG;
+	MYSQL_BIND *bind = &m_params[paramIndex];
+	bind->buffer_type = MYSQL_TYPE_DOUBLE;
+	bind->buffer = malloc(sizeof(double));
+	*(double*)bind->buffer = value;
+	bind->length = 0;
+	return true;
+}
+
+bool MysqlStatement::SetLong64(int paramIndex, long long value)
+{
+	if(!ValidIndex(paramIndex))
+	{
+		return false;
+	}
+	MYSQL_BIND *bind = &m_params[paramIndex];
+	bind->buffer_type = MYSQL_TYPE_LONG;
 	bind->buffer = malloc(sizeof(long long));
+	*(long long*)bind->buffer = value;
 	bind->length = 0;
 	return true;
 }
@@ -158,7 +160,7 @@ bool MysqlStatement::SetString(int paramIndex, const char* value, unsigned long 
 	{
 		return false;
 	}
-	MYSQL_BIND* bind = &m_params[paramIndex];
+	MYSQL_BIND*bind = &m_params[paramIndex];
 	bind->buffer_type = MYSQL_TYPE_VAR_STRING;
 	bind->buffer_length = length;
 	bind->buffer = malloc(length);
@@ -175,13 +177,17 @@ bool MysqlStatement::SetDate(int paramIndex, const tm& value)
 	}
 	MYSQL_BIND* bind = &m_params[paramIndex];
 	bind->buffer_type = MYSQL_TYPE_DATETIME;
+	//bind->buffer = malloc(sizeof(MYSQL_TIME));
 	bind->buffer = malloc(sizeof(MYSQL_TIME));
+
+	memset(bind->buffer,0,sizeof(MYSQL_TIME));
 	((MYSQL_TIME*)bind->buffer)->year = value.tm_year;
 	((MYSQL_TIME*)bind->buffer)->month = value.tm_mon;
 	((MYSQL_TIME*)bind->buffer)->day = value.tm_mday;
 	((MYSQL_TIME*)bind->buffer)->hour = value.tm_hour;
 	((MYSQL_TIME*)bind->buffer)->minute = value.tm_min;
 	((MYSQL_TIME*)bind->buffer)->second = value.tm_sec;
+
 	bind->length = 0;
 	return true;
 }
@@ -193,7 +199,11 @@ bool MysqlStatement::SetTime(int paramIndex, const tm& value)
 		return false;
 	}
 	MYSQL_BIND* bind = &m_params[paramIndex];
+	bind->buffer_type = MYSQL_TYPE_TIME;
+	//bind->buffer = malloc(sizeof(MYSQL_TIME));
 	bind->buffer = malloc(sizeof(MYSQL_TIME));
+
+	memset(bind->buffer,0,sizeof(MYSQL_TIME));
 	((MYSQL_TIME*)bind->buffer)->year = 0;//value.tm_year;
 	((MYSQL_TIME*)bind->buffer)->month = 0;//value.tm_mon;
 	((MYSQL_TIME*)bind->buffer)->day = 0;//value..tm_mday;
@@ -213,9 +223,10 @@ bool MysqlStatement::SetTimestamp(int paramIndex, const tm& value)
 	}
 	MYSQL_BIND* bind = &m_params[paramIndex];
 	bind->buffer_type = MYSQL_TYPE_TIMESTAMP;
+	//bind->buffer = malloc(sizeof(MYSQL_TIME));
 	bind->buffer = malloc(sizeof(MYSQL_TIME));
-	memset(bind->buffer,0,sizeof(MYSQL_TIME));
 
+	memset(bind->buffer,0,sizeof(MYSQL_TIME));
 	((MYSQL_TIME*)bind->buffer)->year = value.tm_year;
 	((MYSQL_TIME*)bind->buffer)->month = value.tm_mon;
 	((MYSQL_TIME*)bind->buffer)->day = value.tm_mday;
@@ -227,24 +238,95 @@ bool MysqlStatement::SetTimestamp(int paramIndex, const tm& value)
 	return true;
 }
 
-int MysqlStatement::Execute(/* = 0 */)
+int MysqlStatement::Execute()
 {
-	if(0 == m_stmt || 0 != mysql_stmt_bind_param(m_stmt,m_params) ||
-		0 != mysql_stmt_execute(m_stmt))
+	if(0 == m_stmt || 0 != mysql_stmt_bind_param(m_stmt,m_params) || 0 != mysql_stmt_execute(m_stmt))
 	{
 		return -1;
 	}
-	//
 	return (int)(mysql_stmt_affected_rows(m_stmt));
 }
 
 int MysqlStatement::Execute(const char* sql)
 {
 	Close();
-	if(0 == m_conn || 0 != mysql_real_query((MYSQL*)(m_conn->GetConn()),sql,(unsigned long)strlen(sql)))
+	if(0 == m_conn || 0 != mysql_real_query( (MYSQL*)(m_conn->GetConn()), sql, (unsigned long) strlen(sql) ))
 	{
 		return -1;
 	}
-	return (int)(mysql_affected_rows((MYSQL*)(m_conn->GetConn())));
+	return (int)(mysql_affected_rows( (MYSQL*)(m_conn->GetConn()) ));
 }
 
+
+IResultset* MysqlStatement::ExecuteQuery()
+{
+	if(0 == m_stmt || 0 != mysql_stmt_bind_param(m_stmt,m_params) || 0 != mysql_stmt_execute(m_stmt))
+	{
+		return 0;
+	}
+	IResultset* result = new MysqlResult();
+	result->SetStmt(this);
+	result->Init();
+	return result;
+}
+
+IResultset* MysqlStatement::ExecuteQuery(const char* sql)
+{
+	Prepare(sql);
+	return ExecuteQuery();
+}
+
+
+void MysqlStatement::InitParams()
+{
+	DestroyParams();
+	m_paramcount = mysql_stmt_param_count(m_stmt);
+	if(m_paramcount > 0)
+	{
+		m_params = new MYSQL_BIND[m_paramcount];
+		memset(m_params,0,sizeof(MYSQL_BIND)* m_paramcount);
+	}
+}
+
+void MysqlStatement::CleanParam(MYSQL_BIND* param)
+{
+	if(0 != param->buffer)
+	{
+		free(param->buffer);
+		param->buffer = 0;
+	}
+	if(0 != param->length)
+	{
+		delete param->length;
+		param->length;
+	}
+	if(0 != param->is_null)
+	{
+		delete param->is_null;
+		param->is_null = 0;
+	}
+}
+
+void MysqlStatement::DestroyParams()
+{
+	if(0 != m_params)
+	{
+		for(int i = 0; i < m_paramcount; i++)
+		{
+			CleanParam(&m_params[i]);
+		}
+		delete[] m_params;
+	}
+	m_paramcount = 0;
+	m_params = 0;
+}
+
+bool MysqlStatement::ValidIndex(int index)
+{
+	if(index < 0 || index >= m_paramcount)
+	{
+		return false;
+	}
+	CleanParam(&m_params[index]);
+	return true;
+}
