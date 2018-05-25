@@ -1,3 +1,4 @@
+/*
 #include "dataadapter.h"
 
 char* DataArea::GetString(unsigned int *len)
@@ -102,3 +103,5 @@ void DataAdapter::Init(const MetaTableDef *table)
 		m_data_area[i].vint64 = 0;
 	}
 }
+
+*/

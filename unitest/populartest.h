@@ -8,8 +8,27 @@
 #include "../frame/timer/timer.h"
 #include "../frame/base/tlvprotocol.h"
 #include "../frame/file/roleparam.h"
+#include "../frame/algorithm/Dijkstra/dijkstra.h"
 
 #include <iostream>
+
+class DijkstraTest
+{
+public:
+	DijkstraTest()
+	{
+		int vexnum,edge;
+		cout << "请输入图的顶点个数和边的条数:"<<endl;
+		cin >> vexnum >> edge;
+		cout << vexnum << edge;
+
+		Graph graph(vexnum , edge);
+		graph.createGraph();
+		graph.print();
+		graph.Dijkstra(2);
+		graph.print_path(2);
+	}
+};
 
 class HeapTest
 {
