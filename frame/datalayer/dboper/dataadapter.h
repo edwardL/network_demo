@@ -1,4 +1,3 @@
-/*
 #ifndef DATAADAPTER_H
 #define DATAADAPTER_H
 
@@ -13,6 +12,7 @@
 	1、MataTableDef的正确性由使用者保证！
 	2、MataTableDef::m_id_index 必须为long long 并自增，数据库中也必须为相应类型
 	3、DataArea 必须和 一个 MataTableDef 对应
+	*/
 
  enum
  {
@@ -121,5 +121,3 @@ struct TableInitArg
 };
 
 #endif
-
-*/

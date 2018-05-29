@@ -19,7 +19,7 @@ MysqlConnFactory::~MysqlConnFactory()
 
 IConnection* MysqlConnFactory::CreateConn()
 {
-	IConnection* ic = new MysqlConnection(m_host.c_str(),m_user.c_str(),m_pass.c_str(),m_database.c_str(),m_port,m_charset.c_str());
+	IConnection* ic = new MysqlConnection(m_user.c_str(),m_pass.c_str(),m_database.c_str(),m_host.c_str(),m_port,m_charset.c_str());
 	ic->Connect();
 	return ic;
 }

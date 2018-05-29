@@ -79,6 +79,7 @@
   <ItemGroup>
     <ClInclude Include="algorithm\Dijkstra\dijkstra.h" />
     <ClInclude Include="algorithm\sort.h" />
+    <ClInclude Include="algorithm\String.h" />
     <ClInclude Include="base\array2d.h" />
     <ClInclude Include="base\basetask.h" />
     <ClInclude Include="base\basethread.h" />
@@ -99,6 +100,8 @@
     <ClInclude Include="base\threadpool.h" />
     <ClInclude Include="base\workerthread.h" />
     <ClInclude Include="datalayer\dboper\dataadapter.h" />
+    <ClInclude Include="datalayer\dboper\sqlmaker.h" />
+    <ClInclude Include="datalayer\dboper\sqlnode.h" />
     <ClInclude Include="datalayer\db\connection.h" />
     <ClInclude Include="datalayer\db\connfactroy.h" />
     <ClInclude Include="datalayer\db\connpool.h" />
@@ -151,6 +154,8 @@
     <ClCompile Include="base\threadpool.cpp" />
     <ClCompile Include="base\workerthread.cpp" />
     <ClCompile Include="datalayer\dboper\dataadapter.cpp" />
+    <ClCompile Include="datalayer\dboper\sqlmaker.cpp" />
+    <ClCompile Include="datalayer\dboper\sqlnode.cpp" />
     <ClCompile Include="datalayer\db\connpool.cpp" />
     <ClCompile Include="datalayer\db\mysql\mysqlconnection.cpp" />
     <ClCompile Include="datalayer\db\mysql\mysqlconnfactory.cpp" />

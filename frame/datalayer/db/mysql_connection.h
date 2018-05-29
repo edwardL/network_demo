@@ -30,26 +30,24 @@ public:
 		MYSQL *conn_ptr;
 		MYSQL_RES *res;
 #ifdef TEST_98
-		char* host = "192.168.7.98";
-		//char* host = "192.168.4.189";
+		char* host = "192.168.9.209";
 		char* user = "root";
-		char* passwd = "121212";
-		char* db = "g2_98_0_game";
-		//char* db = "testdbname";
-		unsigned short port = 4580;
+		char* passwd = "phpTest889[sy_DB*@330?";
+		char* db = "cq_game_99080";
+		unsigned short port = 3306;
 		char* unix_socket = NULL;
 		char* charset = "utf8";
 #else
-		char* host = "192.168.4.189";
+		char* host = "192.168.9.209";
 		char* user = "root";
-		char* passwd = "edward";
-		char* db = "testdbname";
+		char* passwd = "phpTest889[sy_DB*@330?";
+		char* db = "cq_game_99080";
 		unsigned short port = 3306;
 		char* unix_socket = NULL;
 		char* charset = "utf8";
 #endif
 
-		MysqlConnection conn(host,user,passwd,db,port,charset);
+		MysqlConnection conn(user,passwd,db,host,port,charset);
 
 		conn.Connect();
 		if(conn.IsActive())
@@ -59,7 +57,7 @@ public:
 		}
 
 		// test mysqlconnfactory
-		/*
+	
 		MysqlConnFactory connFactory(host,user,passwd,db,port,charset);
 		IConnection* iconnection = connFactory.CreateConn();
 		delete iconnection;
@@ -67,10 +65,10 @@ public:
 		ConnPool::Instance()->Init(&connFactory);
 		IConnection* a = ConnPool::Instance()->GetConn();
 		IConnection* b = ConnPool::Instance()->GetConn();
-		*/
+		
 
 		// test mysql statement
-		if (strcmp(host,"192.168.4.189") == 0)
+		if (strcmp(host,"192.168.9.209") == 0)
 		{
 	//		Mysql_Statement((MYSQL*)a->GetConn());
 			Mysql_Statement((MYSQL*)conn.GetConn());
@@ -93,7 +91,7 @@ public:
 	void Mysql_Statement2(MYSQL* mysql)
 	{
 		MYSQL_STMT* stmt = mysql_stmt_init(mysql);
-		char * query = "insert into userinfo(username,userpass) values(?,?);";
+		char * query = "insert into t_public_notice(content) values(?);";
 	}
 
 	void Mysql_Statement(MYSQL * mysql)
@@ -102,7 +100,7 @@ public:
 		int ret = 0;
 		char errMsg[200] = {0};
 
-		const char* statement = "insert into table_name(age) values(?);";
+		const char* statement = "insert into t_public_notice(content) values(?);";
 		MYSQL_STMT *stmt = mysql_stmt_init(mysql);
 		if(!stmt)
 		{
@@ -126,11 +124,10 @@ public:
 			
 			int age = 111;
 
-			bind[0].buffer_type = MYSQL_TYPE_TINY;
+			/*bind[0].buffer_type = MYSQL_TYPE_TINY;
 			bind[0].buffer = malloc(sizeof(int));
 			*(int*)bind[0].buffer = 111;
-
-
+			*/			
 
 
 			if(mysql_stmt_bind_param(stmt,bind))
