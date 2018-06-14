@@ -71,7 +71,8 @@ int main(int argc , char* argv[])
 //	SerializeTest serTest;
 
 	//DijkstraTest test;
-	MysqlTest test;
+	//MysqlTest test;
+	ObjectTest test;
 
 	system("pause");
 	return 0;

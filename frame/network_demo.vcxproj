@@ -53,6 +53,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -79,6 +80,15 @@
   <ItemGroup>
     <ClInclude Include="algorithm\Dijkstra\dijkstra.h" />
     <ClInclude Include="algorithm\sort.h" />
+    <ClInclude Include="algorithm\STL\Alloc.h" />
+    <ClInclude Include="algorithm\STL\Allocator.h" />
+    <ClInclude Include="algorithm\STL\Construct.h" />
+    <ClInclude Include="algorithm\STL\Iterator.h" />
+    <ClInclude Include="algorithm\STL\TypeTraits.h" />
+    <ClInclude Include="algorithm\STL\UninitializedFunctions.h" />
+    <ClInclude Include="algorithm\STL\Utility.h" />
+    <ClInclude Include="algorithm\STL\Vector.h" />
+    <ClInclude Include="algorithm\STL\Vector.impl.h" />
     <ClInclude Include="algorithm\String.h" />
     <ClInclude Include="base\array2d.h" />
     <ClInclude Include="base\basetask.h" />
@@ -89,8 +99,10 @@
     <ClInclude Include="base\commonfunc.h" />
     <ClInclude Include="base\gamedef.h" />
     <ClInclude Include="base\heap.h" />
+    <ClInclude Include="base\object.h" />
     <ClInclude Include="base\pointer_util.h" />
     <ClInclude Include="base\serializestream.h" />
+    <ClInclude Include="base\singleton.hpp" />
     <ClInclude Include="base\tlvprotocol.h" />
     <ClInclude Include="base\vector.h" />
     <ClInclude Include="base\mutex.h" />
@@ -142,12 +154,14 @@
   <ItemGroup>
     <ClCompile Include="algorithm\Dijkstra\dijkstra.cpp" />
     <ClCompile Include="algorithm\sort.cpp" />
+    <ClCompile Include="algorithm\STL\Alloc.cpp" />
     <ClCompile Include="base\basetask.cpp" />
     <ClCompile Include="base\basethread.cpp" />
     <ClCompile Include="base\basetool.cpp" />
     <ClCompile Include="base\bytebuffer.cpp" />
     <ClCompile Include="base\commonfunc.cpp" />
     <ClCompile Include="base\mutex.cpp" />
+    <ClCompile Include="base\object.cpp" />
     <ClCompile Include="base\serializestream.cpp" />
     <ClCompile Include="base\stringconverter.cpp" />
     <ClCompile Include="base\stringutil.cpp" />
@@ -177,6 +191,13 @@
     <ClCompile Include="tinyxml\tinyxmlerror.cpp" />
     <ClCompile Include="tinyxml\tinyxmlparser.cpp" />
     <ClCompile Include="tinyxml\tinyxml_demo.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

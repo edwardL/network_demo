@@ -9,6 +9,7 @@
 #include "../frame/base/tlvprotocol.h"
 #include "../frame/file/roleparam.h"
 #include "../frame/algorithm/Dijkstra/dijkstra.h"
+#include "../frame/base/object.h"
 
 #include <iostream>
 
@@ -155,5 +156,16 @@ public:
 		unSer.Reset(ser.Ptr(), ser.Size());
 		RoleParam roleParam2;
 		roleParam2.Unserialize(unSer);
+	}
+};
+
+class ObjectTest
+{
+public:
+	ObjectTest()
+	{
+		Object* obj = new Object();
+		obj->autoRelease();
+		MemPool::getInstance()->releaseAll();
 	}
 };
