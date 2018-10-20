@@ -28,8 +28,22 @@ void Update(unsigned long interval, unsigned long nowTime)
 //	printf("interval :%ld, nowTime: %ld\n",interval,nowTime);
 	TimerQuest::getInstance()->Update(nowTime / 1000.0 , interval / 1000.0);
 }
+
+class A{
+public:
+	int m_a;
+};
+
+class B{
+public:
+	int m_b;
+};
+class C : public A, public B {};
+
 int main(int argc , char* argv[])
 {
+	C c;
+	printf("%p,%p,%p",&c,reinterpret_cast<B*>(&c),static_cast<B*>(&c));
 	/*
 	SharedPtr<int> p(new int(10));
 	cout<<*p<<endl;
@@ -72,7 +86,7 @@ int main(int argc , char* argv[])
 
 	//DijkstraTest test;
 	//MysqlTest test;
-	ObjectTest test;
+	//ObjectTest test;
 
 	system("pause");
 	return 0;

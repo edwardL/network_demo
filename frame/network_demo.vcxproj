@@ -40,7 +40,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;$(ProjectDir)../lib/include;G:\network_demo\mysqlconnector\v32\include;</IncludePath>
+    <IncludePath>$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;$(ProjectDir)../lib/include;E:\proj\network_demo\mysqlconnector\v32\include;</IncludePath>
     <LibraryPath>$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib;$(ProjectDir)../lib</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -103,6 +103,7 @@
     <ClInclude Include="base\pointer_util.h" />
     <ClInclude Include="base\serializestream.h" />
     <ClInclude Include="base\singleton.hpp" />
+    <ClInclude Include="base\StringBuffer.h" />
     <ClInclude Include="base\tlvprotocol.h" />
     <ClInclude Include="base\vector.h" />
     <ClInclude Include="base\mutex.h" />
@@ -129,6 +130,7 @@
     <ClInclude Include="datalayer\db\transaction.h" />
     <ClInclude Include="file\basefilepack.h" />
     <ClInclude Include="file\DreamXFile.h" />
+    <ClInclude Include="file\DynLib.h" />
     <ClInclude Include="file\heap.h" />
     <ClInclude Include="file\raobjlist.h" />
     <ClInclude Include="file\roleparam.h" />
@@ -177,6 +179,7 @@
     <ClCompile Include="datalayer\db\mysql\mysqlresult.cpp" />
     <ClCompile Include="datalayer\db\mysql\mysqlstatement.cpp" />
     <ClCompile Include="file\DreamXFile.cpp" />
+    <ClCompile Include="file\DynLib.cpp" />
     <ClCompile Include="file\roleparam.cpp" />
     <ClCompile Include="file\singlemanager.cpp" />
     <ClCompile Include="math\vector2.cpp" />
