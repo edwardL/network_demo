@@ -169,3 +169,24 @@ public:
 		MemPool::getInstance()->releaseAll();
 	}
 };
+
+class MapTest
+{
+public:
+	MapTest()
+	{
+		// 1, 默认比较函数less
+/*
+		std::set<int> mySet;
+		mySet.insert(10);
+		mySet.insert(20);
+		for(std::set<int>::iterator it = mySet.begin(); it != mySet.end(); it++)
+		{
+			std::cout << *it << std::endl;
+		}
+*/
+
+
+
+	}
+};

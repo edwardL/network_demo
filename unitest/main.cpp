@@ -29,6 +29,8 @@ void Update(unsigned long interval, unsigned long nowTime)
 	TimerQuest::getInstance()->Update(nowTime / 1000.0 , interval / 1000.0);
 }
 
+#include<typeinfo>
+
 class A{
 public:
 	int m_a;
@@ -42,8 +44,10 @@ class C : public A, public B {};
 
 int main(int argc , char* argv[])
 {
-	C c;
-	printf("%p,%p,%p",&c,reinterpret_cast<B*>(&c),static_cast<B*>(&c));
+	//C c;
+	//cout << "type:" << typeid(c).name() << endl;
+	//printf("%p,%p,%p",&c,reinterpret_cast<B*>(&c),static_cast<B*>(&c));
+	
 	/*
 	SharedPtr<int> p(new int(10));
 	cout<<*p<<endl;
@@ -87,6 +91,7 @@ int main(int argc , char* argv[])
 	//DijkstraTest test;
 	//MysqlTest test;
 	//ObjectTest test;
+	MapTest test;
 
 	system("pause");
 	return 0;

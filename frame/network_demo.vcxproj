@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -15,18 +15,21 @@
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>network_demo</RootNamespace>
     <ProjectName>frame</ProjectName>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v100</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -40,7 +43,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;$(ProjectDir)../lib/include;E:\proj\network_demo\mysqlconnector\v32\include;</IncludePath>
+    <IncludePath>$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;$(ProjectDir)../lib/include;E:\network_demo\mysqlconnector\v32\include;</IncludePath>
     <LibraryPath>$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib;$(ProjectDir)../lib</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -91,6 +94,7 @@
     <ClInclude Include="algorithm\STL\Vector.impl.h" />
     <ClInclude Include="algorithm\String.h" />
     <ClInclude Include="base\array2d.h" />
+    <ClInclude Include="base\AStar.h" />
     <ClInclude Include="base\basetask.h" />
     <ClInclude Include="base\basethread.h" />
     <ClInclude Include="base\basetool.h" />
@@ -104,6 +108,8 @@
     <ClInclude Include="base\serializestream.h" />
     <ClInclude Include="base\singleton.hpp" />
     <ClInclude Include="base\StringBuffer.h" />
+    <ClInclude Include="base\TByteBuffer.h" />
+    <ClInclude Include="base\threadingmutex.h" />
     <ClInclude Include="base\tlvprotocol.h" />
     <ClInclude Include="base\vector.h" />
     <ClInclude Include="base\mutex.h" />
@@ -157,6 +163,7 @@
     <ClCompile Include="algorithm\Dijkstra\dijkstra.cpp" />
     <ClCompile Include="algorithm\sort.cpp" />
     <ClCompile Include="algorithm\STL\Alloc.cpp" />
+    <ClCompile Include="base\AStar.cpp" />
     <ClCompile Include="base\basetask.cpp" />
     <ClCompile Include="base\basethread.cpp" />
     <ClCompile Include="base\basetool.cpp" />
@@ -167,6 +174,7 @@
     <ClCompile Include="base\serializestream.cpp" />
     <ClCompile Include="base\stringconverter.cpp" />
     <ClCompile Include="base\stringutil.cpp" />
+    <ClCompile Include="base\threadingmutex.cpp" />
     <ClCompile Include="base\threadpool.cpp" />
     <ClCompile Include="base\workerthread.cpp" />
     <ClCompile Include="datalayer\dboper\dataadapter.cpp" />
